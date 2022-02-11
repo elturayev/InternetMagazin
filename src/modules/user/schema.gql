@@ -1,0 +1,52 @@
+
+type Query {
+	categories(
+		categoryId: ID 
+		search: String
+		pagination: Pagination = {}
+	): [Category!]!
+
+	products(
+		productId: ID 
+		search: String
+		pagination: Pagination = {}
+	): [Product!]!
+
+	validOrder:Any
+	
+	ordersUs:[Orders!]!
+}
+
+
+type Orders {
+	orderId: ID!
+	username: Name!
+	products: Any
+	isPaid: Boolean!
+	totalMoney: Float
+	createTime: Any
+}
+
+
+type Mutation {
+
+	login(username: Name! password: String!): Auth!
+	
+	register(
+		username:Name!
+		password:String! 
+		contact:Contact!
+		email: Email
+	):Auth!
+
+	addOrder(productId: ID!):Complete!
+
+	deleteOrder(orderId: ID!):Complete!
+
+	payOrder(orderId: ID!):References!
+
+	deleteProduct(orderId:ID!,productName:String!):Complete!
+}
+
+
+

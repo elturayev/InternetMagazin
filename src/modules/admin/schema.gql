@@ -1,0 +1,47 @@
+
+type Query {
+	ordersAd(pagination: Pagination={}):[OrdersAd!]!
+	Statistic:Any
+	unPaid:Any
+}
+
+type OrdersAd {
+	orderId: ID!
+	username: String!
+	products: Any
+	isPaid: Boolean!
+	totalMoney: Float
+	createTime: Any
+}
+
+
+type Mutation {
+
+	loginAd(username: String! password: String!):Auth!
+
+	addCategory( categoryName: String!):References!
+
+	updatedCategory( categoryId: ID! categoryName: String!):References!
+	
+	deleteCategory( categoryId: ID!):Complete!
+
+	addProductAd(
+		file: Upload!,
+		category_id:ID!
+		product_name:String!, 
+		product_price: Float!,
+		short_description: String,
+		description:String,
+	):References!
+
+	updateProductAd(
+		file: Upload,
+		product_id:ID!
+		product_name:String, 
+		product_price: Float,
+		short_description: String,
+		description:String,
+	):References!
+
+	deleteProductAd(product_id: ID!):Complete!
+}

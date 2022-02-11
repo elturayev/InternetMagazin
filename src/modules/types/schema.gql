@@ -1,0 +1,45 @@
+scalar Upload
+scalar Name
+scalar Any
+scalar Contact
+scalar Email
+
+input Pagination {
+	page: Int = 1
+	limit: Int = 4
+}
+
+type Auth {
+	status: Int!
+	message: String!
+	token: String!
+}
+
+type References {
+	status: Int!
+	message: String!
+	data: Any
+}
+
+type Complete{
+	status: Int!,
+	message: String!,
+}
+
+
+type Category {
+	categoryId: ID!
+	categoryName: String!
+}
+
+type Product {
+	productId: ID!
+	productName: String!
+	productPrice: Float!
+	productImg: String!
+	shortDescription: String!
+	description: String!
+	category: String!
+}
+
+
